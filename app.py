@@ -373,4 +373,8 @@ def export_excel(n, payload, removed_ts, hd, hf, nd, nf, point_name):
     return dcc.send_bytes(lambda b: b.write(xlsx_bytes), filename)
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    import os
+    port = int(os.environ.get("PORT", 8050))
+    app.run_server(host="0.0.0.0", port=port, debug=False)
+
+
